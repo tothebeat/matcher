@@ -6,7 +6,9 @@ from django.core.urlresolvers import reverse_lazy
 
 
 class DataSet(models.Model):
-
+    '''
+    A collection of Spreadsheets.
+    '''
     name = models.CharField(max_length=255)
 
     def __repr__(self):
@@ -18,15 +20,19 @@ class DataSet(models.Model):
     def get_absolute_url(self):
         return reverse_lazy('dataset-detail', args=[self.pk]) 
 
-class Spreadsheet(models.Model):
 
+class Spreadsheet(models.Model):
+    '''
+    At core, an XLSX file. Wrapped with methods to act like 
+    a terrible, terrible database. No CRUD here. 
+    '''
     _file = models.FileField(upload_to='documents/%Y/%m/%d/')
     name = models.CharField(max_length=255)
     date_created = models.DateTimeField(auto_now_add=True)
     dataset = models.ForeignKey(DataSet, null=True)
 
     def __repr__(self):
-        return '<Spreadsheet: {filename}'.format(filename=self._file)
+        return '<Spreadsheet: {filename}>'.format(filename=self._file)
 
     def __unicode__(self):
         return self.name
