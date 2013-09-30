@@ -84,3 +84,17 @@ Note the implied number of rows in this example. Matcher is meant to work with d
 
 I am writing this as a tool to formalize a lot of things I might do by hand when matching data. Hopefully I can also make this useful for someone else. 
 
+TODO:
+=====
+- Add some kind of style framework like Twitter Bootstrap. How?
+- Enhance the view of a spreadsheet's data using something like [DataTables](https://datatables.net/).
+- Tool for stacking spreadsheet files into one that share the same headers/format.
+- Write tests and provide stub XLSX files. 
+- Tool to help find column widths in a fixed-width text data file with unknown spacing. 
+- Tool for denormalizing data across two or more spreadsheets that share a common identifier.
+- How to package this to deploy to a Windows client assumed to have no Python environment? Running locally means total control on data privacy. 
+- lots of other stuff.
+
+Fun to have:
+============
+- Create REST API-like views that access the spreadsheet model and spit out JSON/CSV?
