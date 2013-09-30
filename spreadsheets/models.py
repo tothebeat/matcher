@@ -2,6 +2,7 @@ from __future__ import unicode_literals
 import xlrd
 
 from django.db import models
+from django.core.urlresolvers import reverse_lazy
 
 
 class DataSet(models.Model):
@@ -14,6 +15,8 @@ class DataSet(models.Model):
     def __unicode__(self):
         return self.name
 
+    def get_absolute_url(self):
+        return reverse_lazy('dataset-detail', args=[self.pk]) 
 
 class Spreadsheet(models.Model):
 
@@ -64,3 +67,22 @@ class Spreadsheet(models.Model):
             for col_index in xrange(worksheet.ncols)] 
             for row_index in xrange(worksheet.nrows)]
         return data
+
+    def data_as_dicts(self):
+        '''
+        Assuming the first row in the data is the label/header row, and
+        every subsequent row can be considered a data row.
+        '''
+        workbook = xlrd.open_workbook(file_contents=self._file.read())
+        self._file.seek(0)
+        worksheet = workbook.sheet_by_index(0)
+        header_row = map(lambda cell: cell.value, worksheet.row(0))
+        data = []
+        for row_index in xrange(1, worksheet.nrows):
+            record = dict(zip(header_row, map(lambda cell: cell.value, worksheet.row(row_index))))
+            data.append(record)
+        return data
+
+    def get_absolute_url(self):
+        return reverse_lazy('dataset-detail', args=[self.pk]) 
+

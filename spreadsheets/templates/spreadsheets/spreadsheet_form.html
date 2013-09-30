@@ -1,0 +1,11 @@
+<h1>Add a Spreadsheet</h1>
+
+<form action="{% url "spreadsheet-create" %}" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+    <ul>
+        {{ form.as_ul }}
+    </ul>
+    <input id="save_spreadsheet" type="submit" value="Save" />
+</form>
+
+<a href="{% url "spreadsheet-list" %}">back to list</a>
