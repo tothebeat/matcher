@@ -1,13 +1,31 @@
+{% extends "base.html" %}
+{% block content %}
 <p>Name: {{ spreadsheet.name }}</p>
 <p>Data Set: {{ spreadsheet.dataset.name }}</p>
-<table>
-{% for row in spreadsheet.data %}
-<tr>
-	{% for cell in row %}
-	<td>
-		{{ cell }}
-	</td>
-	{% endfor %}
-</tr>
-{% endfor %}
+<table id="spreadsheet_data">
+    <thead>
+        <tr>
+        	{% for value in spreadsheet.header_row %}
+            <th>{{ value }}</th>
+            {% endfor %}
+        </tr>
+    </thead>
+    <tbody>
+    	{% for row in spreadsheet.data_rows %}
+        <tr>
+        	{% for value in row %}
+            <td>{{ value }}</td>
+            {% endfor %}
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
+{% endblock %}
+
+{% block finalscript %}
+<script type="text/javascript">
+$(document).ready(function() {
+	$('#spreadsheet_data').dataTable();
+} );
+</script>
+{% endblock finalscript %}
