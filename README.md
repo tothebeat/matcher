@@ -1,6 +1,19 @@
 matcher
 =======
 
+Setup
+-----
+Create a virtualenv and install requirements with
+  
+    pip install -r requirements/base.txt
+
+To add development requirements, also run
+
+    pip install -r requirements/dev.txt
+
+Description
+-----------
+
 Written in Python using the [Django](https://docs.djangoproject.com/en/1.5/) web framework to make this accessible to people who don't want to use command lines (like me) to make use of a program. Using the [xlrd](https://pypi.python.org/pypi/xlrd/0.9.2) python library for reading XLSX spreadsheet files. I have no idea how xlrd works, it could be a tiny version of Excel for all I know. 
 
 I have no idea what I'm doing. How did I get here.
