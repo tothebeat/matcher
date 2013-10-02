@@ -3,7 +3,7 @@ matcher
 
 Setup
 -----
-Create a virtualenv and install requirements with
+Create a [virtualenv](http://docs.python-guide.org/en/latest/dev/virtualenvs/) and install requirements with
   
     pip install -r requirements/base.txt
 
@@ -16,9 +16,7 @@ Description
 
 Written in Python using the [Django](https://docs.djangoproject.com/en/1.5/) web framework to make this accessible to people who don't want to use command lines (like me) to make use of a program. Using the [xlrd](https://pypi.python.org/pypi/xlrd/0.9.2) python library for reading XLSX spreadsheet files. I have no idea how xlrd works, it could be a tiny version of Excel for all I know. 
 
-I have no idea what I'm doing. How did I get here.
-
-The point of this project is to help solve the problem of matching data between files of different formats that do not share a common field. For example, let's say you have a file with home addresses for your friends:
+The point of this project is to help you match data between files of different formats that do not share a common field. For an extremely simplified example, let's say you have a file with home addresses for your friends:
 
 <table>
   <tr>
@@ -99,10 +97,10 @@ I am writing this as a tool to formalize a lot of things I might do by hand when
 
 TODO:
 =====
-- Add some kind of style framework like Twitter Bootstrap. How?
+- Add some kind of style framework like Twitter Bootstrap.
 - Enhance the view of a spreadsheet's data using something like [DataTables](https://datatables.net/).
 - Tool for stacking spreadsheet files into one that share the same headers/format.
-- Write tests and provide stub XLSX files. 
+- Write tests and provide stub XLSX files.
 - Tool to help find column widths in a fixed-width text data file with unknown spacing. 
 - Tool for denormalizing data across two or more spreadsheets that share a common identifier.
 - How to package this to deploy to a Windows client assumed to have no Python environment? Running locally means total control on data privacy. 
