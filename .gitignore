@@ -1,7 +1,6 @@
 *.db
 *.pyc
-*.xlsx*
-*.xls*
 *.csv
 *.lock*
 htdocs/
+documents/
