@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<h1>{{ spreadsheet.name }} spreadsheet</h1>
+<h1>{{ spreadsheet.filename }}</h1>
 {% if spreadsheet.dataset %}
 <p>Data Set: {{ spreadsheet.dataset.name }}</p>
 {% endif %}

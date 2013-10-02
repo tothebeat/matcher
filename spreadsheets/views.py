@@ -16,8 +16,7 @@ class SpreadsheetDetail(DetailView):
 
     def get_context_data(self, **kwargs):
         context = {}
-        spreadsheet = ExcelSpreadsheet(self.object.name, self.object._file.read())
-        self.object._file.seek(0)     
+        spreadsheet = self.object.get_spreadsheet    
         context['header_row'] = spreadsheet.header_row
         context['data_rows'] = spreadsheet.data
         context.update(kwargs)

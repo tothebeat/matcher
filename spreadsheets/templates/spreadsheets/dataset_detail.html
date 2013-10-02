@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{{ dataset.name }}</h1>
+<ul>
+    {% for spreadsheet in dataset.spreadsheet_set.all %}
+    <li>
+        <a href="{% url 'spreadsheet-detail' spreadsheet.pk %}">
+            {{ spreadsheet.filename }}
+        </a>            
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}
